@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    /* ── Tokens ─────────────────────────────────────────── */
     :root {
       --cream:       #F5F0E8;
       --cream-dark:  #EDE5D4;
@@ -19,13 +18,11 @@
       --sage:        #5A6B4A;
       --dust:        #9B8B7A;
       --sky:         #7A9BAB;
-
       --ff-display:  'IM Fell English', Georgia, serif;
       --ff-heading:  'Playfair Display', Georgia, serif;
       --ff-body:     'Source Serif 4', Georgia, serif;
     }
 
-    /* ── Reset ──────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
@@ -40,7 +37,6 @@
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── Texture overlay (paper grain) ─────────────────── */
     body::before {
       content: '';
       position: fixed;
@@ -51,20 +47,20 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
     }
 
-    /* ── Nav ────────────────────────────────────────────── */
+    /* Nav */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
+      gap: 2rem;
       padding: 1rem 2rem;
       background: rgba(245, 240, 232, 0.92);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid rgba(107, 63, 31, 0.15);
+      flex-wrap: wrap;
     }
-
     nav a {
       font-family: var(--ff-body);
       font-size: 0.78rem;
@@ -76,7 +72,7 @@
     }
     nav a:hover { color: var(--gold); }
 
-    /* ── Hero ───────────────────────────────────────────── */
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -87,8 +83,6 @@
       padding: 7rem 2rem 4rem;
       position: relative;
     }
-
-    /* Decorative rule lines */
     .hero::before, .hero::after {
       content: '';
       display: block;
@@ -106,7 +100,6 @@
       margin: 0 auto 2rem;
       filter: drop-shadow(0 4px 24px rgba(42,31,20,0.10));
     }
-
     .hero-tagline {
       font-family: var(--ff-display);
       font-style: italic;
@@ -116,14 +109,12 @@
       max-width: 480px;
       margin: 0 auto 2.5rem;
     }
-
     .hero-location {
       font-size: 0.75rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--sage);
     }
-
     .scroll-hint {
       position: absolute;
       bottom: 2.5rem;
@@ -145,13 +136,12 @@
       50%       { transform: translateY(5px); }
     }
 
-    /* ── Section base ───────────────────────────────────── */
+    /* Sections */
     section {
       padding: 5rem 2rem;
       max-width: 820px;
       margin: 0 auto;
     }
-
     .section-label {
       font-size: 0.7rem;
       letter-spacing: 0.25em;
@@ -169,7 +159,6 @@
       background: linear-gradient(to right, var(--gold-light), transparent);
       max-width: 120px;
     }
-
     h2 {
       font-family: var(--ff-heading);
       font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -178,11 +167,10 @@
       margin-bottom: 1.5rem;
       line-height: 1.25;
     }
-
     p { margin-bottom: 1.1rem; color: var(--ink); }
     p:last-child { margin-bottom: 0; }
 
-    /* ── Divider ────────────────────────────────────────── */
+    /* Divider */
     .divider {
       display: flex;
       align-items: center;
@@ -198,33 +186,21 @@
       height: 1px;
       background: var(--bark);
     }
-    .divider-glyph {
-      font-size: 1.1rem;
-      color: var(--bark);
-      line-height: 1;
-    }
+    .divider-glyph { font-size: 1.1rem; color: var(--bark); line-height: 1; }
 
-    /* ── About / Bio ────────────────────────────────────── */
+    /* Bio */
     #about { padding-top: 5rem; }
+    .bio-text { font-size: 1.05rem; line-height: 1.85; }
 
-    .bio-text {
-      font-size: 1.05rem;
-      line-height: 1.85;
-    }
-
-    /* ── Watch (Video) ──────────────────────────────────── */
-    #watch { background: transparent; }
-
+    /* Watch */
+    .video-stack { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
     .video-wrap {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       border-radius: 2px;
-      box-shadow:
-        0 2px 0 var(--gold),
-        0 6px 32px rgba(42,31,20,0.18);
-      margin-top: 2rem;
+      box-shadow: 0 2px 0 var(--gold), 0 6px 32px rgba(42,31,20,0.18);
     }
     .video-wrap iframe {
       position: absolute;
@@ -233,21 +209,38 @@
       border: none;
     }
 
-    /* ── Members ────────────────────────────────────────── */
-    #members { background: transparent; }
+    /* Listen */
+    .woodshed-note {
+      font-family: var(--ff-display);
+      font-style: italic;
+      color: var(--dust);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .audio-list { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 1.5rem; }
+    .audio-item { display: flex; flex-direction: column; gap: 0.4rem; }
+    .audio-title {
+      font-family: var(--ff-heading);
+      font-size: 0.95rem;
+      color: var(--bark);
+      font-weight: 400;
+      font-style: italic;
+    }
+    audio {
+      width: 100%;
+      height: 36px;
+      accent-color: var(--gold);
+    }
+    audio::-webkit-media-controls-panel { background: var(--cream-dark); }
 
+    /* Members */
     .members-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-
-    .member-card {
-      border-top: 2px solid var(--gold-light);
-      padding-top: 1.2rem;
-    }
-
+    .member-card { border-top: 2px solid var(--gold-light); padding-top: 1.2rem; }
     .member-name {
       font-family: var(--ff-heading);
       font-size: 1.15rem;
@@ -255,7 +248,6 @@
       color: var(--bark);
       margin-bottom: 0.2rem;
     }
-
     .member-instruments {
       font-size: 0.78rem;
       letter-spacing: 0.12em;
@@ -263,16 +255,13 @@
       color: var(--sage);
     }
 
-    /* ── Photos placeholder ─────────────────────────────── */
-    #photos { background: transparent; }
-
+    /* Photos */
     .photos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin-top: 2rem;
     }
-
     .photos-grid img {
       width: 100%;
       aspect-ratio: 4/3;
@@ -281,19 +270,58 @@
       box-shadow: 0 2px 16px rgba(42,31,20,0.12);
       display: block;
     }
-
-    /* ── Contact ────────────────────────────────────────── */
-    #contact {
-      text-align: center;
-      padding-bottom: 6rem;
-    }
-
-    #contact p {
-      max-width: 480px;
-      margin: 0 auto 2rem;
+    .photo-credit {
+      margin-top: 0.8rem;
+      font-style: italic;
+      font-size: 0.78rem;
       color: var(--dust);
     }
 
+    /* Upcoming Shows */
+    .shows-list { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+    .show-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(107,63,31,0.12);
+    }
+    .show-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .show-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .show-venue {
+      font-family: var(--ff-heading);
+      font-size: 1.05rem;
+      color: var(--bark);
+      font-weight: 400;
+    }
+    .show-time {
+      font-size: 0.82rem;
+      color: var(--dust);
+      margin-top: 0.1rem;
+    }
+    .show-map {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .show-map:hover { background: var(--sage); color: var(--cream); }
+
+    /* Contact */
+    #contact { text-align: center; padding-bottom: 6rem; }
+    #contact p { max-width: 480px; margin: 0 auto 2rem; color: var(--dust); }
     .contact-email {
       display: inline-block;
       font-family: var(--ff-heading);
@@ -303,19 +331,10 @@
       padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
-    .contact-email:hover {
-      color: var(--gold);
-      border-color: var(--gold-light);
-    }
+    .contact-email:hover { color: var(--gold); border-color: var(--gold-light); }
+    .booking-note { margin-top: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--dust); }
 
-    .booking-note {
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      color: var(--dust);
-    }
-
-    /* ── Footer ─────────────────────────────────────────── */
+    /* Footer */
     footer {
       border-top: 1px solid rgba(107,63,31,0.15);
       padding: 2rem;
@@ -325,24 +344,18 @@
       color: var(--dust);
     }
 
-    /* ── Fade-in on scroll ──────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── Responsive ─────────────────────────────────────── */
+    /* Responsive */
     @media (max-width: 600px) {
-      nav { gap: 1.2rem; }
-      nav a { font-size: 0.7rem; }
+      nav { gap: 1rem; }
+      nav a { font-size: 0.68rem; }
       .photos-grid { grid-template-columns: 1fr; }
+      .show-item { grid-template-columns: 1fr; }
+      .show-map { width: fit-content; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
       .scroll-hint svg { animation: none; }
@@ -351,19 +364,19 @@
 </head>
 <body>
 
-  <!-- Nav -->
   <nav>
     <a href="#about">About</a>
     <a href="#watch">Watch</a>
+    <a href="#listen">Listen</a>
+    <a href="#shows">Shows</a>
     <a href="#members">Members</a>
     <a href="#photos">Photos</a>
     <a href="#contact">Booking</a>
   </nav>
 
-  <!-- Hero -->
   <header class="hero">
-    <img class="hero-logo" src="roving roots logo 2.png" alt="Roving Roots" />
-    <p class="hero-tagline">Acoustic trio rooted in bluegrass, Americana &amp; swing music</p>
+    <img class="hero-logo" src="logo.png" alt="Roving Roots" />
+    <p class="hero-tagline">Acoustic trio rooted in Americana, bluegrass, &amp; old-time</p>
     <p class="hero-location">Charlotte, NC</p>
     <div class="scroll-hint">
       <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -372,7 +385,6 @@
     </div>
   </header>
 
-  <!-- About -->
   <section id="about" class="reveal">
     <div class="section-label">About</div>
     <h2>Where the groove takes them</h2>
@@ -386,23 +398,85 @@
 
   <div class="divider"><span class="divider-glyph">♪</span></div>
 
-  <!-- Watch -->
   <section id="watch" class="reveal">
     <div class="section-label">Watch</div>
     <h2>Live performance</h2>
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/w_u-TPrFIQk"
-        title="Roving Roots live performance"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+    <div class="video-stack">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/w_u-TPrFIQk" title="Roving Roots live performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/DQTmxrDe-K8" title="Roving Roots live performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/kZfy9T9baF0" title="Roving Roots live performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
   <div class="divider"><span class="divider-glyph">♪</span></div>
 
-  <!-- Members -->
+  <section id="listen" class="reveal">
+    <div class="section-label">Listen</div>
+    <h2>Caught in the woodshed</h2>
+    <p class="woodshed-note">Snippets from our practice sessions.</p>
+    <div class="audio-list">
+      <div class="audio-item">
+        <div class="audio-title">Souvenir</div>
+        <audio controls preload="none">
+          <source src="Souvenir.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+      <div class="audio-item">
+        <div class="audio-title">Church Street Blues</div>
+        <audio controls preload="none">
+          <source src="Church Street Blues.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+      <div class="audio-item">
+        <div class="audio-title">Dawg in the Sound</div>
+        <audio controls preload="none">
+          <source src="Dawg In The Sound.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-glyph">♪</span></div>
+
+  <section id="shows" class="reveal">
+    <div class="section-label">Upcoming Shows</div>
+    <h2>Come see us live</h2>
+    <div class="shows-list">
+      <div class="show-item">
+        <div>
+          <div class="show-date">July 9, 2026</div>
+          <div class="show-venue">The Cabin — Davidson, NC</div>
+          <div class="show-time">7:00 – 10:00 PM</div>
+        </div>
+        <a class="show-map" href="https://maps.google.com/?q=The+Cabin+Davidson+NC" target="_blank" rel="noopener">Map ↗</a>
+      </div>
+      <div class="show-item">
+        <div>
+          <div class="show-date">July 11, 2026</div>
+          <div class="show-venue">Earl Scruggs Center — Shelby, NC</div>
+          <div class="show-time">11:00 AM – 12:00 PM</div>
+        </div>
+        <a class="show-map" href="https://maps.google.com/?q=Earl+Scruggs+Center+Shelby+NC" target="_blank" rel="noopener">Map ↗</a>
+      </div>
+      <div class="show-item">
+        <div>
+          <div class="show-date">July 24, 2026</div>
+          <div class="show-venue">Divine Barrel Brewing — Charlotte, NC</div>
+          <div class="show-time">6:00 – 9:00 PM</div>
+        </div>
+        <a class="show-map" href="https://maps.google.com/?q=Divine+Barrel+Brewing+Charlotte+NC" target="_blank" rel="noopener">Map ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-glyph">♪</span></div>
+
   <section id="members" class="reveal">
     <div class="section-label">The Band</div>
     <h2>Who we are</h2>
@@ -424,19 +498,20 @@
 
   <div class="divider"><span class="divider-glyph">♪</span></div>
 
-  <!-- Photos -->
   <section id="photos" class="reveal">
     <div class="section-label">Photos</div>
-    <h2>Press photos</h2>
+    <h2>Photos</h2>
     <div class="photos-grid">
       <img src="GROUPBANDPHOTO.JPG" alt="Roving Roots band photo" />
       <img src="Julia.jpg" alt="Julia Migner" />
+      <img src="Chalmers.jpg" alt="Chalmers Croft" />
+      <img src="Drew.jpg" alt="Drew Egerton" />
     </div>
+    <p class="photo-credit">Photo credit: Ethan Walker</p>
   </section>
 
   <div class="divider"><span class="divider-glyph">♪</span></div>
 
-  <!-- Contact -->
   <section id="contact" class="reveal">
     <div class="section-label">Booking</div>
     <h2>Book Roving Roots</h2>
@@ -445,12 +520,10 @@
     <p class="booking-note">We'll get back to you within 48 hours.</p>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Roving Roots · Charlotte, NC · rovingrootsband.com</p>
+    <p>© 2026 Roving Roots · Charlotte, NC · rovingrootsband.com</p>
   </footer>
 
-  <!-- Scroll reveal -->
   <script>
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
