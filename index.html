@@ -236,11 +236,20 @@
     /* Members */
     .members-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-    .member-card { border-top: 2px solid var(--gold-light); padding-top: 1.2rem; }
+    .member-card { display: flex; flex-direction: column; }
+    .member-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 2px 16px rgba(42,31,20,0.12);
+      margin-bottom: 1rem;
+    }
+    .member-info { border-top: 2px solid var(--gold-light); padding-top: 0.9rem; }
     .member-name {
       font-family: var(--ff-heading);
       font-size: 1.15rem;
@@ -376,7 +385,7 @@
 
   <header class="hero">
     <img class="hero-logo" src="logo.png" alt="Roving Roots" />
-    <p class="hero-tagline">Acoustic trio rooted in Americana, bluegrass, &amp; old-time</p>
+    <p class="hero-tagline">Acoustic trio rooted in old-time, Americana &amp; bluegrass</p>
     <p class="hero-location">Charlotte, NC</p>
     <div class="scroll-hint">
       <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -482,16 +491,25 @@
     <h2>Who we are</h2>
     <div class="members-grid">
       <div class="member-card">
-        <div class="member-name">Chalmers Croft</div>
-        <div class="member-instruments">Guitar</div>
+        <img class="member-photo" src="Chalmers.jpg" alt="Chalmers Croft" />
+        <div class="member-info">
+          <div class="member-name">Chalmers Croft</div>
+          <div class="member-instruments">Guitar</div>
+        </div>
       </div>
       <div class="member-card">
-        <div class="member-name">Drew Egerton</div>
-        <div class="member-instruments">Mandolin</div>
+        <img class="member-photo" src="Drew.jpg" alt="Drew Egerton" />
+        <div class="member-info">
+          <div class="member-name">Drew Egerton</div>
+          <div class="member-instruments">Mandolin</div>
+        </div>
       </div>
       <div class="member-card">
-        <div class="member-name">Julia Migner</div>
-        <div class="member-instruments">Fiddle · Clawhammer Banjo</div>
+        <img class="member-photo" src="Julia.jpg" alt="Julia Migner" />
+        <div class="member-info">
+          <div class="member-name">Julia Migner</div>
+          <div class="member-instruments">Fiddle · Clawhammer Banjo</div>
+        </div>
       </div>
     </div>
   </section>
@@ -503,9 +521,9 @@
     <h2>Photos</h2>
     <div class="photos-grid">
       <img src="GROUPBANDPHOTO.JPG" alt="Roving Roots band photo" />
-      <img src="Julia.jpg" alt="Julia Migner" />
-      <img src="Chalmers.jpg" alt="Chalmers Croft" />
-      <img src="Drew.jpg" alt="Drew Egerton" />
+      <img src="photo1.jpg" alt="Roving Roots" />
+      <img src="photo2.jpg" alt="Roving Roots" />
+      <img src="photo3.jpg" alt="Roving Roots" />
     </div>
     <p class="photo-credit">Photo credit: Ethan Walker</p>
   </section>
