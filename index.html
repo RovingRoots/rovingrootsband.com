@@ -17,7 +17,6 @@
       --gold-light:  #E8C97A;
       --sage:        #5A6B4A;
       --dust:        #9B8B7A;
-      --sky:         #7A9BAB;
       --ff-display:  'IM Fell English', Georgia, serif;
       --ff-heading:  'Playfair Display', Georgia, serif;
       --ff-body:     'Source Serif 4', Georgia, serif;
@@ -54,6 +53,7 @@
       z-index: 100;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 2rem;
       padding: 1rem 2rem;
       background: rgba(245, 240, 232, 0.92);
@@ -69,8 +69,12 @@
       text-transform: uppercase;
       color: var(--bark);
       transition: color 0.2s;
+      display: flex;
+      align-items: center;
     }
     nav a:hover { color: var(--gold); }
+    nav a svg path, nav a svg polygon { transition: fill 0.2s; }
+    nav a:hover svg path, nav a:hover svg polygon { fill: var(--gold); }
 
     /* Hero */
     .hero {
@@ -193,7 +197,14 @@
     .bio-text { font-size: 1.05rem; line-height: 1.85; }
 
     /* Watch */
-    .video-stack { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+    .video-stack { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem; }
+    .video-item { display: flex; flex-direction: column; gap: 0.6rem; }
+    .video-credit {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--dust);
+    }
     .video-wrap {
       position: relative;
       padding-bottom: 56.25%;
@@ -218,7 +229,7 @@
       margin-bottom: 2rem;
     }
     .audio-list { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 1.5rem; }
-    .audio-item { display: flex; flex-direction: column; gap: 0.4rem; }
+    .audio-item { display: flex; flex-direction: column; gap: 0.25rem; }
     .audio-title {
       font-family: var(--ff-heading);
       font-size: 0.95rem;
@@ -226,12 +237,17 @@
       font-weight: 400;
       font-style: italic;
     }
+    .audio-credit {
+      font-size: 0.75rem;
+      color: var(--dust);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
+    }
     audio {
       width: 100%;
       height: 36px;
       accent-color: var(--gold);
     }
-    audio::-webkit-media-controls-panel { background: var(--cream-dark); }
 
     /* Members */
     .members-grid {
@@ -310,11 +326,7 @@
       color: var(--bark);
       font-weight: 400;
     }
-    .show-time {
-      font-size: 0.82rem;
-      color: var(--dust);
-      margin-top: 0.1rem;
-    }
+    .show-time { font-size: 0.82rem; color: var(--dust); margin-top: 0.1rem; }
     .show-map {
       font-size: 0.72rem;
       letter-spacing: 0.12em;
@@ -329,8 +341,8 @@
     .show-map:hover { background: var(--sage); color: var(--cream); }
 
     /* Contact */
-    #contact { text-align: center; padding-bottom: 6rem; }
-    #contact p { max-width: 480px; margin: 0 auto 2rem; color: var(--dust); }
+    #contact { text-align: center; padding-bottom: 4rem; }
+    #contact > p { max-width: 480px; margin: 0 auto 2rem; color: var(--dust); }
     .contact-email {
       display: inline-block;
       font-family: var(--ff-heading);
@@ -343,6 +355,27 @@
     .contact-email:hover { color: var(--gold); border-color: var(--gold-light); }
     .booking-note { margin-top: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--dust); }
 
+    /* Social links in contact */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dust);
+      transition: color 0.2s;
+    }
+    .social-link:hover { color: var(--bark); }
+    .social-link svg path, .social-link svg polygon { transition: fill 0.2s; }
+    .social-link:hover svg path, .social-link:hover svg polygon { fill: var(--bark); }
+
     /* Footer */
     footer {
       border-top: 1px solid rgba(107,63,31,0.15);
@@ -352,6 +385,14 @@
       letter-spacing: 0.1em;
       color: var(--dust);
     }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-social a { display: flex; align-items: center; transition: opacity 0.2s; }
+    .footer-social a:hover { opacity: 0.6; }
 
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -381,6 +422,17 @@
     <a href="#members">Members</a>
     <a href="#photos">Photos</a>
     <a href="#contact">Booking</a>
+    <a href="https://www.youtube.com/@RovingRootsBand" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.54 6.42a2.83 2.83 0 0 0-1.99-2C18.88 4 12 4 12 4s-6.88 0-8.55.46a2.83 2.83 0 0 0-1.99 2A29.6 29.6 0 0 0 1 12a29.6 29.6 0 0 0 .46 5.58 2.83 2.83 0 0 0 1.99 2C5.12 20 12 20 12 20s6.88 0 8.55-.46a2.83 2.83 0 0 0 1.99-2A29.6 29.6 0 0 0 23 12a29.6 29.6 0 0 0-.46-5.58z" fill="#6B3F1F"/>
+        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#F5F0E8"/>
+      </svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61587271318593" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="#6B3F1F"/>
+      </svg>
+    </a>
   </nav>
 
   <header class="hero">
@@ -411,14 +463,23 @@
     <div class="section-label">Watch</div>
     <h2>Live performance</h2>
     <div class="video-stack">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/w_u-TPrFIQk" title="Roving Roots live performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-item">
+        <div class="video-credit">All About You — Cliff Friend</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/DQTmxrDe-K8" title="All About You" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/DQTmxrDe-K8" title="Roving Roots live performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-item">
+        <div class="video-credit">In Tall Buildings — John Hartford</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/w_u-TPrFIQk" title="In Tall Buildings" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/kZfy9T9baF0" title="Roving Roots live performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-item">
+        <div class="video-credit">Hard Times — Gillian Welch</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/kZfy9T9baF0" title="Hard Times" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -428,24 +489,27 @@
   <section id="listen" class="reveal">
     <div class="section-label">Listen</div>
     <h2>Caught in the woodshed</h2>
-    <p class="woodshed-note">Snippets from our practice sessions.</p>
+    <p class="woodshed-note">Snippets from our practice sessions — rough around the edges and all the better for it.</p>
     <div class="audio-list">
       <div class="audio-item">
         <div class="audio-title">Souvenir</div>
+        <div class="audio-credit">Pharis &amp; Jason Romero</div>
         <audio controls preload="none">
           <source src="Souvenir.mp3" type="audio/mpeg" />
         </audio>
       </div>
       <div class="audio-item">
-        <div class="audio-title">Church Street Blues</div>
+        <div class="audio-title">Dawg in the Sound</div>
+        <div class="audio-credit">Roving Roots (original)</div>
         <audio controls preload="none">
-          <source src="Church Street Blues.mp3" type="audio/mpeg" />
+          <source src="Dawg In The Sound.mp3" type="audio/mpeg" />
         </audio>
       </div>
       <div class="audio-item">
-        <div class="audio-title">Dawg in the Sound</div>
+        <div class="audio-title">Church Street Blues</div>
+        <div class="audio-credit">Norman Blake</div>
         <audio controls preload="none">
-          <source src="Dawg In The Sound.mp3" type="audio/mpeg" />
+          <source src="Church Street Blues.mp3" type="audio/mpeg" />
         </audio>
       </div>
     </div>
@@ -511,7 +575,6 @@
           <div class="member-instruments">Fiddle · Clawhammer Banjo</div>
         </div>
       </div>
-	<p class="photo-credit">Photo credit: Ethan Walker</p>
     </div>
   </section>
 
@@ -526,7 +589,7 @@
       <img src="photo2.jpg" alt="Roving Roots" />
       <img src="photo3.jpg" alt="Roving Roots" />
     </div>
-    
+    <p class="photo-credit">Photo credit: Ethan Walker</p>
   </section>
 
   <div class="divider"><span class="divider-glyph">♪</span></div>
@@ -537,9 +600,37 @@
     <p>Available for festivals, listening rooms, private events, and venue residencies in the Charlotte area and beyond.</p>
     <a class="contact-email" href="mailto:rovingrootsband@gmail.com">rovingrootsband@gmail.com</a>
     <p class="booking-note">We'll get back to you within 48 hours.</p>
+    <div class="social-links">
+      <a class="social-link" href="https://www.youtube.com/@RovingRootsBand" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.54 6.42a2.83 2.83 0 0 0-1.99-2C18.88 4 12 4 12 4s-6.88 0-8.55.46a2.83 2.83 0 0 0-1.99 2A29.6 29.6 0 0 0 1 12a29.6 29.6 0 0 0 .46 5.58 2.83 2.83 0 0 0 1.99 2C5.12 20 12 20 12 20s6.88 0 8.55-.46a2.83 2.83 0 0 0 1.99-2A29.6 29.6 0 0 0 23 12a29.6 29.6 0 0 0-.46-5.58z" fill="#9B8B7A"/>
+          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#F5F0E8"/>
+        </svg>
+        YouTube
+      </a>
+      <a class="social-link" href="https://www.facebook.com/profile.php?id=61587271318593" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="#9B8B7A"/>
+        </svg>
+        Facebook
+      </a>
+    </div>
   </section>
 
   <footer>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/@RovingRootsBand" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.54 6.42a2.83 2.83 0 0 0-1.99-2C18.88 4 12 4 12 4s-6.88 0-8.55.46a2.83 2.83 0 0 0-1.99 2A29.6 29.6 0 0 0 1 12a29.6 29.6 0 0 0 .46 5.58 2.83 2.83 0 0 0 1.99 2C5.12 20 12 20 12 20s6.88 0 8.55-.46a2.83 2.83 0 0 0 1.99-2A29.6 29.6 0 0 0 23 12a29.6 29.6 0 0 0-.46-5.58z" fill="#9B8B7A"/>
+          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#F5F0E8"/>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61587271318593" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="#9B8B7A"/>
+        </svg>
+      </a>
+    </div>
     <p>© 2026 Roving Roots · Charlotte, NC · rovingrootsband.com</p>
   </footer>
 
