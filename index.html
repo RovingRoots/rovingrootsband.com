@@ -520,26 +520,7 @@
   <section id="shows" class="reveal">
     <div class="section-label">Upcoming Shows</div>
     <h2>Come see us live</h2>
-    <div class="shows-list">
-      <div class="show-item">
-        <div>
-          <div class="show-date">August 29, 2026</div>
-          <div class="show-venue">Bluegrass Jamboree at Lost Worlds Brewing Company</div>
-	  <div class="show-time">Cornelius, NC</div>
-          <div class="show-time">5:45 – 6:45 PM</div>
-        </div>
-        <a class="show-map" href="https://www.google.com/maps/place/Lost+Worlds+Brewing+Company/@35.480964,-81.0473211,11z/data=!4m10!1m2!2m1!1sLost+Worlds+Brewing+Company!3m6!1s0x8856a98fd609eb25:0xf79660ceeece9e1e!8m2!3d35.480964!4d-80.8825262!15sChtMb3N0IFdvcmxkcyBCcmV3aW5nIENvbXBhbnlaHSIbbG9zdCB3b3JsZHMgYnJld2luZyBjb21wYW55kgEHYnJld2VyeZoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VOc2JVeFlhV0ZCRUFF4AEA-gEFCNYEED0!16s%2Fg%2F11fslpnx_p?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Map ↗</a>
-      </div>
-      <div class="show-item">
-        <div>
-          <div class="show-date">September 2, 2026</div>
-          <div class="show-venue">Piedmont Folkways</div>
-	  <div class="show-time">Statesville, NC</div>
-          <div class="show-time">7:30 – 8:45 PM</div>
-        </div>
-        <a class="show-map" href="https://www.google.com/maps/place/Statesville+Historical+Collection/@35.783656,-80.8889043,19.09z/data=!4m6!3m5!1s0x885159829766807d:0x45448135f165d5eb!8m2!3d35.7838812!4d-80.8877243!16s%2Fg%2F11fx7wx8n_?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Map ↗</a>
-      </div>
-    </div>
+    <div class="shows-list" id="shows-list"></div>
   </section>
 
   <div class="divider"><span class="divider-glyph">♪</span></div>
@@ -633,6 +614,64 @@
       { threshold: 0.12 }
     );
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Load upcoming shows from shows.json
+    (function () {
+      const list = document.getElementById('shows-list');
+      if (!list) return;
+
+      const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+
+      fetch('shows.json')
+        .then(r => {
+          if (!r.ok) throw new Error('Could not load shows.json');
+          return r.json();
+        })
+        .then(shows => {
+          if (!Array.isArray(shows)) shows = [];
+
+          // Today at midnight, so a show still shows on its own day.
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          const upcoming = shows
+            .filter(s => {
+              if (!s.iso) return true; // keep shows with no iso date, just in case
+              const d = new Date(s.iso + 'T00:00:00');
+              return isNaN(d) ? true : d >= today;
+            })
+            .sort((a, b) => String(a.iso || '').localeCompare(String(b.iso || '')));
+
+          if (upcoming.length === 0) {
+            list.innerHTML = '<p class="woodshed-note">No shows on the calendar right now — check back soon.</p>';
+            return;
+          }
+          list.innerHTML = upcoming.map(s => {
+            const map = s.map
+              ? `<a class="show-map" href="${esc(s.map)}" target="_blank" rel="noopener">Map ↗</a>`
+              : '';
+            const location = s.location
+              ? `<div class="show-time">${esc(s.location)}</div>` : '';
+            const time = s.time
+              ? `<div class="show-time">${esc(s.time)}</div>` : '';
+            return `
+      <div class="show-item">
+        <div>
+          <div class="show-date">${esc(s.date)}</div>
+          <div class="show-venue">${esc(s.venue)}</div>
+          ${location}
+          ${time}
+        </div>
+        ${map}
+      </div>`;
+          }).join('');
+        })
+        .catch(() => {
+          list.innerHTML = '<p class="woodshed-note">Shows are temporarily unavailable.</p>';
+        });
+    })();
   </script>
 
 </body>

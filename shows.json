@@ -1,0 +1,42 @@
+[
+  {
+    "iso": "2026-08-29",
+    "date": "August 29, 2026",
+    "venue": "Bluegrass Jamboree at Lost Worlds Brewing Company",
+    "location": "Cornelius, NC",
+    "time": "5:45 – 6:45 PM",
+    "map": "https://www.google.com/maps/place/Lost+Worlds+Brewing+Company/@35.480964,-81.0473211,11z/data=!4m10!1m2!2m1!1sLost+Worlds+Brewing+Company!3m6!1s0x8856a98fd609eb25:0xf79660ceeece9e1e!8m2!3d35.480964!4d-80.8825262!15sChtMb3N0IFdvcmxkcyBCcmV3aW5nIENvbXBhbnlaHSIbbG9zdCB3b3JsZHMgYnJld2luZyBjb21wYW55kgEHYnJld2VyeZoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VOc2JVeFlhV0ZCRUFF4AEA-gEFCNYEED0!16s%2Fg%2F11fslpnx_p?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "iso": "2026-09-02",
+    "date": "September 2, 2026",
+    "venue": "Piedmont Folkways",
+    "location": "Statesville, NC",
+    "time": "7:30 – 8:45 PM",
+    "map": "https://www.google.com/maps/place/Statesville+Historical+Collection/@35.783656,-80.8889043,19.09z/data=!4m6!3m5!1s0x885159829766807d:0x45448135f165d5eb!8m2!3d35.7838812!4d-80.8877243!16s%2Fg%2F11fx7wx8n_?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "iso": "2026-09-10",
+    "date": "September 10, 2026",
+    "venue": "The Cabin",
+    "location": "Davidson, NC",
+    "time": "7:00 – 10:00 PM",
+    "map": "https://www.google.com/maps/place/The+Cabin/@35.5057742,-80.8707488,16z/data=!3m2!4b1!5s0x8856abb8562aada7:0xa2bd0c48ae41e749!4m6!3m5!1s0x8856abb857d1a327:0x97cefc44bc84543a!8m2!3d35.5057699!4d-80.8681685!16s%2Fg%2F11fz3q3rjk?entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "iso": "2026-10-08",
+    "date": "October 8, 2026",
+    "venue": "The Cabin",
+    "location": "Davidson, NC",
+    "time": "7:00 – 10:00 PM",
+    "map": "https://www.google.com/maps/place/The+Cabin/@35.5057742,-80.8707488,16z/data=!3m2!4b1!5s0x8856abb8562aada7:0xa2bd0c48ae41e749!4m6!3m5!1s0x8856abb857d1a327:0x97cefc44bc84543a!8m2!3d35.5057699!4d-80.8681685!16s%2Fg%2F11fz3q3rjk?entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "iso": "2026-10-10",
+    "date": "October 10, 2026",
+    "venue": "Divine Barrel Brewing",
+    "location": "Charlotte, NC",
+    "time": "3:00 – 6:00 PM",
+    "map": "https://www.google.com/maps/place/Divine+Barrel+Brewing/@35.2504093,-80.7989799,17z/data=!3m1!4b1!4m6!3m5!1s0x88541fcfa9dcbf4d:0x13fb5ebfed503aaf!8m2!3d35.2504049!4d-80.7963996!16s%2Fg%2F11f1576_62?entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+  }
+]
