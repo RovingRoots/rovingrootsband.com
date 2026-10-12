@@ -339,6 +339,19 @@
       transition: background 0.2s, color 0.2s;
     }
     .show-map:hover { background: var(--sage); color: var(--cream); }
+    .shows-rsvp { margin-top: 2rem; text-align: center; }
+    .shows-rsvp a {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .shows-rsvp a:hover { background: var(--sage); color: var(--cream); }
 
     /* Contact */
     #contact { text-align: center; padding-bottom: 4rem; }
@@ -419,6 +432,7 @@
     <a href="#watch">Watch</a>
     <a href="#listen">Listen</a>
     <a href="#shows">Shows</a>
+    <a href="rsvp.html">RSVP</a>
     <a href="#members">Members</a>
     <a href="#photos">Photos</a>
     <a href="#contact">Booking</a>
@@ -521,6 +535,9 @@
     <div class="section-label">Upcoming Shows</div>
     <h2>Come see us live</h2>
     <div class="shows-list" id="shows-list"></div>
+    <div class="shows-rsvp">
+      <a href="rsvp.html">Coming to a show? Let us know ↗</a>
+    </div>
   </section>
 
   <div class="divider"><span class="divider-glyph">♪</span></div>
